@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"></script>
+</head>
+
+<body id="container">
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <a href="#" hx-get="index.html" hx-target="#container" hx-push-url="true">
+          <h1 class=" glitch">Jan Musiol</h1>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="#" hx-get="projects.html" hx-target="#content" hx-push-url="true">Projects</a>
+        <a href="#" hx-get="about.html" hx-target="#content" hx-push-url="true">About</a>
+        <a href="#" hx-get="contact.html" hx-target="#content" hx-push-url="true">Contact</a>
+      </div>
+    </div>
+  </nav>
+  <div hx-get="projects.html" hx-target="#content" hx-trigger="load"></div>
+
+  <main>
+    <div id="content" class="content-panel">
+    </div>
+  </main>
+</body>
+
+</html>
