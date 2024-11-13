@@ -1,59 +1,214 @@
+<script>
+  // Function to open the dialog
+  const dialog = document.getElementById("dialog");
+
+  // Get all buttons with the class "open-dialog"
+  const openDialogBtns = document.querySelectorAll(".open-dialog");
+
+  // Add click event listeners to each button
+  openDialogBtns.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      // Load the specific content for each button using hx-get
+      const contentUrl = button.getAttribute("hx-get");
+      document.getElementById("modal-body").setAttribute("hx-get", contentUrl);
+      document.getElementById("modal-body").setAttribute("hx-trigger", "load");
+
+      // Display the dialog
+      dialog.style.display = "block";
+    });
+  });
+
+  // Close button logic to hide the dialog
+  const closeBtn = dialog.getElementsByClassName("close")[0];
+  closeBtn.addEventListener("click", () => {
+    dialog.style.display = "none";
+  });
+</script>
 <div id="projects">
   <h2 class="glitch">Projects</h2>
   <div class="project-grid">
+
+
     <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum. </p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
+      <div>
+        <h3>Heatington</h3>
+        <p>Group project. Second Semester Project about optimizing city heating grid.</p>
+        <img src="images/ht/ht-1.png" alt="Heatington Screenshot" />
+        <img src="images/ht/ht-2.png" alt="Heatington Screenshot" />
+        <img src="images/ht/ht-3.png" alt="Heatington Screenshot" />
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="videos/ht/ht.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+        <a href="https://github.com/SDU-Semester-Project-2/Heatington" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>ETMF</h3>
+        <p>Research applications, worked on it as Junior Software Developer</p>
+        <img src="images/etmf/etmf2.png" alt="Etmf Dashboard Screenshot" />
+        <img src="images/etmf/etmf4.png" alt="Etmf Dashboard Screenshot" />
+        <img src="images/etmf/etmf5.png" alt="Etmf Dashboard Screenshot" />
+      </div>
+      <button class="open-dialog" hx-get="videos/etmf/etmf.html" hx-target="#modal-body" hx-trigger="click">
+        See More
+      </button>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>Wallpaper Picker</h3>
+        <p>Simple app for browsing wallpapers.</p>
+        <img src="images/wp/wp1.png" alt="Wallpaper App Screenshot" />
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="videos/wp/wp.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+
+        <a href="https://github.com/magwrap/WallpapersApp" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>Animal Board</h3>
+        <p>
+          Social Network app where you can make and share photos of your
+          puppies.
+        </p>
+        <img src="images/ab/ab-3.png" alt="Animal Social Network App Screenshot" />
+      </div>
+
+      <div>
+        <button class="open-dialog" hx-get="images/ab/ab.html" hx-target="#modal-body" hx-trigger="click">
+          See more 
+        </button>
+        <a href="https://github.com/magwrap/AnimalBoard" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="project-card">
+      <div>
+        <h3>Online Shop</h3>
+        <p>
+          Two years ago I have built an online shop as a part of my internship.
+        </p>
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="videos/si/si.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+
+        <a href="https://github.com/magwrap/SklepInternetowy" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>Sleep Tracker</h3>
+        <p>
+          Simple app to keep track of sleeping habits. Made to practice, graph
+          plotting and CRUD operations.
+        </p>
+      </div>
+
+      <div>
+        <button class="open-dialog" hx-get="videos/st/st.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+
+        <a href="https://github.com/magwrap/SleepTracker" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>InstruChat</h3>
+        <p>Chatting mobile application for instrumentalists.</p>
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="videos/in/in.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+        <a href="https://github.com/magwrap/ChatApp" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <h3>World Of Zuul</h3>
+        <p>First Semester Project about text based terminal game.</p>
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="videos/wz/wz.html" hx-target="#modal-body" hx-trigger="click">
+          See More
+        </button>
+        <a href="https://github.com/magwrap/WorldOfZuul-group14" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="project-card">
+      <div>
+        <h3>AntiAntiAdblock</h3>
+        <p> ... </p>
+        <img src="" alt="" />
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="" hx-target="#modal-body" hx-trigger="click"> See more</button>
+        <a href="https://github.com/magwrap/antiantiadblock" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
     </div>
     <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
+      <div>
+        <h3>HanoiTowers</h3>
+        <p> ... </p>
+        <img src="" alt="" />
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="" hx-target="#modal-body" hx-trigger="click"> See more</button>
+        <a href="https://github.com/magwrap/hanoi-towers" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
     </div>
+
+
     <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
-    </div>
-    <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
-    </div>
-    <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
-    </div>
-    <div class="project-card">
-      <h3>Lorem ipsum</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.</p>
-      <a href="#" style="color: var(--secondary-color)">View Project →</a>
+      <div>
+        <h3>GameOfLife</h3>
+        <p> ... </p>
+        <img src="" alt="" />
+      </div>
+      <div>
+        <button class="open-dialog" hx-get="" hx-target="#modal-body" hx-trigger="click"> See more</button>
+        <a href="https://github.com/magwrap/GameOfLife" target="_blank">
+          <button>Github</button>
+        </a>
+      </div>
     </div>
   </div>
+
+</div>
 </div>

@@ -5,31 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"></script>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 
 <body id="container">
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-        <a href="#" hx-get="index.html" hx-target="#container" hx-push-url="true">
-          <h1 class=" glitch">Jan Musiol</h1>
-        </a>
-      </div>
-      <div class="nav-links">
-        <a href="#" hx-get="projects.html" hx-target="#content" hx-push-url="true">Projects</a>
-        <a href="#" hx-get="about.html" hx-target="#content" hx-push-url="true">About</a>
-        <a href="#" hx-get="contact.html" hx-target="#content" hx-push-url="true">Contact</a>
-      </div>
-    </div>
-  </nav>
+  <div hx-get="navbar.html" hx-target="#navbar" hx-trigger="load"></div>
   <div hx-get="projects.html" hx-target="#content" hx-trigger="load"></div>
-
+  <nav>
+    <div id="navbar"></div>
+  </nav>
   <main>
     <div id="content" class="content-panel">
     </div>
+    <div id="dialog" class="modal" style="display: none;">
+      <div class=" modal-content ">
+        <span class="close" hx-on="click: this.closest('.modal').style.display='none'">&times;</span>
+        <div id="modal-body">
+          <!-- Content will be loaded here -->
+        </div>
+      </div>
+    </div>
   </main>
+
 </body>
 
 </html>
